@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard</title>
+    <link rel="stylesheet" href="lbstyle.css">
+</head>
+
+<body>
+    <main class="table" id="customers_table">
+        <section class="table__header">
+            <h1>LeaderBoard</h1>
+            <div class="input-group">
+                <input type="search" placeholder="Search Data...">
+                <img src="img/search.png" alt="">
+            </div>
+        </section>
+        <section class="table__body">
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Player <span class="icon-arrow">&#8593;</span></th>
+                        <th>Country</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody id="leaderboard-body">
+                    <!-- Leaderboard rows will be dynamically updated here -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <script src="lbscript.js"></script>
+    <script>
+        // Define a global function to update the leaderboard
+        window.updateLeaderboard = function(score) {
+            const tableBody = document.getElementById('leaderboard-body');
+            // This is where you'd add logic to update the leaderboard
+            // For simplicity, let's just log the score and add a new row
+            console.log("Updating leaderboard with score:", score);
+            
+            // Example: Add a new row to the leaderboard with the score
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>New</td>
+                <td>Player</td>
+                <td>Country</td>
+                <td>$${score.toFixed(2)}</td>
+            `;
+            tableBody.appendChild(row);
+        };
+    </script>
+</body>
+
+</html>
